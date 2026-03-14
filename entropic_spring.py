@@ -148,7 +148,8 @@ if __name__ == '__main__':
     ax[1].set_ylabel("ratio MC/exact")
 
     plt.suptitle(f"unbiased rubber band, N={N}, a={a}, M={M}")
-    plt.savefig('figures/I_ratio.pdf', bbox_inches='tight', dpi=200)
+    plt.savefig('figures/I_ratio.png', bbox_inches='tight', dpi=200)
+    #plt.savefig('figures/I_ratio.pdf', bbox_inches='tight', dpi=200)
     #plt.show()
     plt.close()
 
@@ -186,7 +187,8 @@ if __name__ == '__main__':
         ax[1].set_ylabel("ratio MC/exact")
 
         plt.suptitle(f"force f = {f}")
-        plt.savefig(f'figures/II_f={f}.pdf', bbox_inches='tight', dpi=200)
+        plt.savefig(f'figures/II_f={f}.png', bbox_inches='tight', dpi=200)
+        #plt.savefig(f'figures/II_f={f}.pdf', bbox_inches='tight', dpi=200)
         #plt.show()
         plt.close()
 
@@ -196,7 +198,8 @@ if __name__ == '__main__':
     plt.xlabel('force (f)')
     plt.ylabel(r"$\mu_{\text{eff}} / M$")
     plt.title("reweighting efficiency vs force")
-    plt.savefig('figures/II_efficiency.pdf', bbox_inches='tight', dpi=200)
+    plt.savefig('figures/II_efficiency.png', bbox_inches='tight', dpi=200)
+    #plt.savefig('figures/II_efficiency.pdf', bbox_inches='tight', dpi=200)
     #plt.show()
     plt.close()
 
@@ -265,7 +268,8 @@ if __name__ == '__main__':
     plt.ylabel(r"mean length ($\left<L\right>$)")
     plt.title("Force vs. Mean Length, Linear Regime Divergence")
     plt.legend()
-    plt.savefig('figures/III_mean_L_force_2.pdf', bbox_inches='tight', dpi=200)
+    plt.savefig('figures/III_mean_L_force_2.png', bbox_inches='tight', dpi=200)
+    #plt.savefig('figures/III_mean_L_force_2.pdf', bbox_inches='tight', dpi=200)
     #plt.show()
     plt.close()
 
@@ -278,7 +282,8 @@ if __name__ == '__main__':
     plt.ylabel(r"mean length ($\left<L\right>$)")
     plt.title("Force vs. Mean Length, Comparison with Analytical")
     plt.legend()
-    plt.savefig('figures/III_mean_L_force_0.pdf', bbox_inches='tight', dpi=200)
+    plt.savefig('figures/III_mean_L_force_0.png', bbox_inches='tight', dpi=200)
+    #plt.savefig('figures/III_mean_L_force_0.pdf', bbox_inches='tight', dpi=200)
     #plt.show()
     plt.close()
 
@@ -293,6 +298,7 @@ if __name__ == '__main__':
     plt.xlim(0.0,0.5)
     plt.ylim(0.0, 50.0)
     plt.legend()
-    plt.savefig('figures/III_mean_L_force_1.pdf', bbox_inches='tight', dpi=200)
+    plt.savefig('figures/III_mean_L_force_1.png', bbox_inches='tight', dpi=200)
+    #plt.savefig('figures/III_mean_L_force_1.pdf', bbox_inches='tight', dpi=200)
     #plt.show()
     plt.close()
