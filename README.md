@@ -95,7 +95,7 @@ Then we define the classes and functions that help with calculating the weightin
 
 First, we considered an ensemble of unbiased microstates: rubber bands which are not pulling with any force and are just random configurations. We set up a `Link` and `RubberBand` class to simulate the rubber bands and links between them. We calculated the length of a rubber band. We did a Monte Carlo simulation of $M = 10^5$ unbiased rubber bands with $N = 100$ links and $a = 1$. The exact probability distribution along with the Monte Carlo samples and the ratio of the Monte Carlo and the exact solution can be seen in the figure below. 
 
-![Length distribution of an unbiased rubber band. Each rubber band has $N = 100$ links with $a = 1$, and $M = 10^5$ Monte Carlo samples were made. The Monte Carlo histogram is overlaid with the exact solution. The ratio plot shows good agreement with the analytical solution, along with the $\chi^2/$ndf value of $0.745 \sim 1$.](figures/I_ratio.pdf)
+![Length distribution of an unbiased rubber band. Each rubber band has $N = 100$ links with $a = 1$, and $M = 10^5$ Monte Carlo samples were made. The Monte Carlo histogram is overlaid with the exact solution. The ratio plot shows good agreement with the analytical solution, along with the $\chi^2/$ndf value of $0.745 \sim 1$.](figures/I_ratio.png)
 
 We can see an agreement between the Monte Carlo sampling and the exact analytical model. The ratio plot in the lower panel of the figure demonstrates that the model is in good agreement with the MC data (although it is seen to be diverging beyond the region of statistical convergence). Furthermore, the $\chi^2/$ndf shows a value of $0.745 \sim 1$, which also shows good agreement. 
 
@@ -103,20 +103,20 @@ We can see an agreement between the Monte Carlo sampling and the exact analytica
 
 Now, we will introduce an external force $f$ pulling the rubber band in the positive direction. We will do this with a reweighting technique, such that we do not need to resample the rubber bands, but rather we calculate a new weight with which they enter. We will add a Boltzmann weight to each `RubberBand`. We will work in units where $k_B = 1$ and $T = 1$, such that $\beta = 1$. We compare the weighted analytical solution for different forces, $f = \{0.01, 0.05, 0.1, 0.5, 1.0\}$, which can be seen in the figures below. For low external forces, the analytical solution is quite close to the MC sample, while for higher forces (from $\sim 0.5$) the analytical distribution diverging from the MC samples. \par 
 
-![Reweighted length distributions $P_f(L)$ for various external forces; $f \in \{0.01, 0.05, 0.1, 0.5, 1.0\}$. For low external forces, the analytical solution is quite close to the MC sample, while for higher forces (from $\sim 0.5$) the analytical distribution diverging from the MC samples. ](figures/II_f=0.01.pdf)
+![Reweighted length distributions $P_f(L)$ for various external forces; $f \in \{0.01, 0.05, 0.1, 0.5, 1.0\}$. For low external forces, the analytical solution is quite close to the MC sample, while for higher forces (from $\sim 0.5$) the analytical distribution diverging from the MC samples. ](figures/II_f=0.01.png)
 
-![$f = 0.05$ ](figures/II_f=0.05.pdf)
+![$f = 0.05$ ](figures/II_f=0.05.png)
 
-![$f = 0.1$ ](figures/II_f=0.1.pdf)
+![$f = 0.1$ ](figures/II_f=0.1.png)
 
-![$f = 0.5$ ](figures/II_f=0.5.pdf)
+![$f = 0.5$ ](figures/II_f=0.5.png)
 
-![$f = 1.0$ ](figures/II_f=1.0.pdf)
+![$f = 1.0$ ](figures/II_f=1.0.png)
 
 
 We can see the reweighting efficiency in the figure below. A rapid decay can be seen for higher forces, which indicates that the reweighting becomes statistically unreliable. This is likely because only a tiny fraction of the original random configurations have a sufficiently large length to contribute significant weight under higher forces. This causes the statistical error to grow, and therefore the ratio plot to diverge. 
 
-![Reweighting efficiency $(\mu_{\rm eff}/M)$ as s function of the applied force $f$. A rapid decay can be seen for higher forces, which indicates that the reweighting becomes statistically unreliable.](figures/II_efficiency.pdf)
+![Reweighting efficiency $(\mu_{\rm eff}/M)$ as s function of the applied force $f$. A rapid decay can be seen for higher forces, which indicates that the reweighting becomes statistically unreliable.](figures/II_efficiency.png)
 
 
 ### Direct simulation of pulling with a force
@@ -131,15 +131,15 @@ For comparison against expectation, we initialize $5000$ rubber bands at each va
 
 We get an analytical function $\left<L\right>(f)=Na\tanh(\beta fa)$, which has a roughly linear regime for low $f$ and then transitions to a constant regime for high $f$. In the figure below, this is plotted as the red line, while the results from our Monte-Carlo sampling are the blue dots. The standard deviation of the Monte-Carlo samples are visualized as a transparent area around the main function.
 
-![Comparison of Monte-Carlo and analytical results. With the full expanded analytical mean $\left<L\right>$, we find a very good agreement for all values of $f$. The standard deviation is initially quite large at low values of force, and gets narrower over time.](figures/III_mean_L_force_0.pdf)
+![Comparison of Monte-Carlo and analytical results. With the full expanded analytical mean $\left<L\right>$, we find a very good agreement for all values of $f$. The standard deviation is initially quite large at low values of force, and gets narrower over time.](figures/III_mean_L_force_0.png)
 
 Defining the ''linear regime'' as the region between $0.01$ and $0.05$, we can perform a linear fit to our Monte-Carlo sample pulled only from forces in this range (conveniently, this is the first element of our force array), using `SciPy`'s module `curve_fit`. Note that in the figure below, we take the domain of the plot as the range of the first two elements of the force array, $(0.0,\;0.5]$ --- but only the first component $(0.0,\;0.05]$ is fitted.
 
-![Linear-regime fit for $\left<L\right>$. The analytical value for the constant $k$ is extremely close to the fitted value --- the absolute difference between $k=\frac{k_BT}{Na^2}$ and our calculated fit for $k_\textup{eff}$ is $\approx2.47\times10^{-5}$. If we instead fit the entire range of the plot, the absolute difference becomes $\approx2.36\times10^{-3}$. (These values are sensitive to seeding.)](figures/III_mean_L_force_1.pdf)
+![Linear-regime fit for $\left<L\right>$. The analytical value for the constant $k$ is extremely close to the fitted value --- the absolute difference between $k=\frac{k_BT}{Na^2}$ and our calculated fit for $k_\textup{eff}$ is $\approx2.47\times10^{-5}$. If we instead fit the entire range of the plot, the absolute difference becomes $\approx2.36\times10^{-3}$. (These values are sensitive to seeding.)](figures/III_mean_L_force_1.png)
 
 For large $f$, the linear fit breaks down, visualized in the figure below. The distribution becomes much tighter --- standard deviations drop by an order of magnitude from the linear regime to the large-force regime (from $\sigma_\text{linear}\approx10.18$ to $\sigma_\textup{large}\approx1.81$). This is expected from analytical results as well.
 
-![Linear-regime fit for $\left<L\right>$ with the plot extended to higher forces. The disagreement between the linear regime fit and the final Monte Carlo / expanded analytical derivations is roughly $\Delta\left<L\right>\approx141.62$, while the initial value for this quantity is $\Delta\left<L\right>\approx0.018$, a difference of five orders of magnitude. The main body of divergence starts after $f\sim0.5$, which has a disagreement $\Delta\left<L\right>\approx3.80$. (These values are also sensitive to seeding.)](figures/III_mean_L_force_2.pdf)
+![Linear-regime fit for $\left<L\right>$ with the plot extended to higher forces. The disagreement between the linear regime fit and the final Monte Carlo / expanded analytical derivations is roughly $\Delta\left<L\right>\approx141.62$, while the initial value for this quantity is $\Delta\left<L\right>\approx0.018$, a difference of five orders of magnitude. The main body of divergence starts after $f\sim0.5$, which has a disagreement $\Delta\left<L\right>\approx3.80$. (These values are also sensitive to seeding.)](figures/III_mean_L_force_2.png)
 
 
 ## Classes
@@ -177,6 +177,12 @@ If the bias and kbT are given, `RubberBand` will create a biased sample. If not,
 └── Figures     # All produced Figures
 ```
 
+## RUnning the program
+
+The program can be run by using 
+```
+python3.12 entropic_spring.py
+```
 
 
 
