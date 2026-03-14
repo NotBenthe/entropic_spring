@@ -1,0 +1,6 @@
+# requirements
+numpy>=1.24
+math 
+matplotlib>=3.7
+os
+scipy
