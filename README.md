@@ -123,7 +123,7 @@ We can see the reweighting efficiency in the figure below. A rapid decay can be 
 
 We continue our simulation of the rubber band with a constant applied force $f$, now drawing Monte Carlo samples using a biased distribution to obtain more reliable results for high $f$. We modify our `RubberBand` class to take both `kbT` and `force` inputs --- the former is set to $1.0$ for our experiments, while the latter are sampled from the distribution $f\in[0.0,2.5]$. When `force` is given, we draw string directions from `numpy.rng.choice` with a biased `p`-parameter:
 
-$$p=\left\{p_+, \; p_- \right\}=\left\{p_+,\;1-p_+\right\}$$
+$$p=\{p_+, \; p_- \} = \{p_+,\;1-p_+\}$$
 
 $$p_+=\frac{1}{2}\left(1+\tanh(\beta fa)\right)$$
 
