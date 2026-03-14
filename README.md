@@ -184,18 +184,6 @@ The program can be run by using
 python3.12 entropic_spring.py
 ```
 
+## Discussion and Conclusions
 
-
-
-
-
-
-
-
-
-
-
-
-
-\section{Discussion and Conclusion}
 Our $\chi^2/\text{ndf}$ value for the unbiased rubber band showed great agreement with the theoretical distribution, meaning that our sampling was indeed both efficient enough and convergent enough to accurately model the system. For smaller values of $M$, we found that the $\chi^2/\text{ndf}$ value was lower, as expected (around $0.745$ for $M=1\times10^5$ samples). (Larger values of $M$ were not possible due to computational constraints.) For the case of applied constant forces and reweighted rubber bands, we found a decent agreement with the analytical distribution for low forces, but one that breaks down in the case of large forces, as expected due to the unbiased and biased ensembles overlapping less. This leads directly into our true simulation of the biased distribution, which was able to correct this artifact, and more effectively model the system. Our results accurately recreate both the full expected analytical distribution ($\tanh$) and the Taylor-expanded linear regime, with an extremely accurate derived value for the effective Hooke's constant. We once again find the very considerable divergence (several orders of magnitude with $\beta=\frac{1}{k_BT}=1$) for large forces (larger than $f=0.5$), which means the Hooke's law approximation should break down in similar regimes when either $\beta$ or $f$ are large. This has implications especially for low-energy physics, where $T$ is small and models involving Hooke's law as an approximation may begin to break down.
