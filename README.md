@@ -1,4 +1,4 @@
-# Rubber Band Simulation
+# Monte Carlo Rubber Band Simulation
 
 Monte Carlo implementation for a simulation of a 1D entropic rubber band. 
 
